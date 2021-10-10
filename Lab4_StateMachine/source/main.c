@@ -34,8 +34,11 @@ void Tick() {
 			if(PINA == 0x01){
 				state = Increment;
 			}
-			else{
+			else if (PINA == 0x00){
 				state = Init;
+			}
+			else if (PINA == 0x03){
+				state = Reset;
 			}
                         break;
 		case On_Increment:
@@ -44,8 +47,11 @@ void Tick() {
 		case Decrement:
                         if(PINA == 0x02){
                                 state = Decrement;
-                        }else{
+                        }else if (PINA == 0x00){
                                 state = Init;
+                        }
+			else if (PINA == 0x03){
+                                state = Reset;
                         }
                         break;
 		case On_Decrement:
@@ -84,6 +90,7 @@ void Tick() {
 			break;
 		case Reset:
 			cnt = 0;
+			PORTC = 0x00;
 			break;
 		default:
 			PORTC = 0x07;

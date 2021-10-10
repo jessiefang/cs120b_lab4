@@ -1,7 +1,7 @@
-Breakpoint 1 at 0x31c: file source/main.c, line 102.
+Breakpoint 1 at 0x374: file source/main.c, line 109.
 Note: automatically using hardware breakpoints for read-only addresses.
 ======================================================
 Running all tests..."
 
-"Test increment"..."Test Reset"...======================================================
+"PINA = 0x00 => PORTC: 8, state = Increment"..."Test Reset"...======================================================
 Remote doesn't know how to detach

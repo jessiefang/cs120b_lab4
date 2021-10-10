@@ -40,7 +40,7 @@ echo Running all tests..."\n\n
 
 # Add tests below
 
-test "Test increment"
+test "PINA = 0x00 => PORTC: 8, state = Increment"
 set state = Start
 setPINA 0x01
 continue 5
