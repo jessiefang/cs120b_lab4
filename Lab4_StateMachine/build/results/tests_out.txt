@@ -3,6 +3,5 @@ Note: automatically using hardware breakpoints for read-only addresses.
 ======================================================
 Running all tests..."
 
-"PINA: 0x04, 0x00, 0x02,0x00 => PORTB: 1, state = Unlock"...
-	Expected Unlock but got state:1======================================================
+"PINA: 0x04, 0x00, 0x01, 0x00, 0x02, 0x00, 0x01 => PORTB: 0x01"...======================================================
 Remote doesn't know how to detach

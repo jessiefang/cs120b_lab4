@@ -40,9 +40,13 @@ echo Running all tests..."\n\n
 
 # Add tests below
 
-test "PINA: 0x04, 0x00, 0x02,0x00 => PORTB: 1, state = Unlock"
+test "PINA: 0x04, 0x00, 0x01, 0x00, 0x02, 0x00, 0x01 => PORTB: 0x01"
 set state = Start
 setPINA 0x04
+continue 2
+setPINA 0x00
+continue 2
+setPINA 0x01
 continue 2
 setPINA 0x00
 continue 2
@@ -50,6 +54,9 @@ setPINA 0x02
 continue 2
 setPINA 0x00
 continue 2
+setPINA 0x01
+continue 2
+expectPORTB 1
 expect state Unlock
 checkResult
 
