@@ -13,6 +13,7 @@
 #endif
 
 enum States {Start, Init, Increment, Decrement, Reset, On_Increment, On_Decrement} state;
+unsigned char cnt = 0x07;
 void Tick() {
 	switch(state){
 		case Start:
@@ -70,19 +71,19 @@ void Tick() {
 		case Increment:
 			break;
 		case On_Increment:
-			if(PORTC < 9){
-				PORTC = PORTC + 1;
+			if(cnt < 0x09){
+				cnt++;
 			}
 			break;
 		case Decrement:
 			break;
 		case On_Decrement:
-			if(PORTC > 0){
-				PORTC = PORTC -1;
+			if(cnt > 0x00){
+				cnt--;
 			}
 			break;
 		case Reset:
-			PORTC = 0x00;
+			cnt = 0;
 			break;
 		default:
 			PORTC = 0x07;
@@ -94,10 +95,12 @@ void Tick() {
 int main(void) {
     /* Insert DDR and PORT initializations */
 	DDRA = 0x00; PORTA = 0xFF;
-	DDRC = 0xFF; PORTC = 0x07;
+	DDRC = 0xFF; PORTC = 0x00;
+	cnt = 7;
     /* Insert your solution below */
     while (1) {
 	Tick();
+ 	PORTC = cnt;
     }
     return 1;
 }
